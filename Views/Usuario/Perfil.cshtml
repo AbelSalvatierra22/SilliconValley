@@ -1,0 +1,87 @@
+@model SilliconValley.Integration.dto.Usuario
+
+@{
+    ViewData["Title"] = "Perfil de Usuario";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4" style="color: #080079;">@ViewData["Title"]</h1>
+                    <div class="text-center mb-4">
+                        <div class="avatar">
+                            <img src="@Model.Avatar" alt="Avatar" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <h5 class="mb-0" style="color: #790400;">Nombre:</h5>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="mb-0">@Model.Nombre @Model.Apellido</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <h5 class="mb-0" style="color: #790400;">Email:</h5>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="mb-0">@Model.Email</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <h5 class="mb-0" style="color: #790400;">ID:</h5>
+                        </div>
+                        <div class="col-sm-8">
+                            <p class="mb-0">@Model.Id</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="@Url.Action("Index", "Usuario")" class="btn btn-primary btn-hover">REGRESAR A LA LISTA DE USUARIOS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+   
+    
+    
+    
+    .card-footer {
+        background-color: #ffffff;
+        border-top: none;
+    }
+    .btn-primary {
+        background-color: #0218e0;
+        border-color: #790400;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .btn-primary:hover {
+        background-color: #790400;
+        border-color: #790400;
+    }
+    .avatar {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: #790400;
+        display: inline-block;
+    }
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .btn-hover:hover {
+        background-color: #790400 !important;
+        border-color: #790400 !important;
+    }
+</style>

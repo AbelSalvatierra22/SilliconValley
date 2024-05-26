@@ -1,0 +1,95 @@
+@model List<SilliconValley.Integration.dto.Usuario>
+
+@{
+    ViewData["Title"] = "LISTA DE USUARIOS";
+}
+
+<div class="container my-5">
+    <h2 class="mb-4 text-center">@ViewData["Title"]</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">EMAIL</th>
+                    <th scope="col">NOMBRE</th>
+                    <th scope="col">APELLIDO</th>
+                    <th scope="col">AVATAR</th>
+                    <th scope="col">PERFIL</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var user in Model)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Email</td>
+                            <td>@user.Nombre</td>
+                            <td>@user.Apellido</td>
+                            <td><img src="@user.Avatar" alt="Avatar" class="img-fluid" style="width:80px;height:80px;" /></td>
+                            <td><a href="@Url.Action("Perfil", new { Id = user.Id })" style="color: #fd0000">VER PERFIL</a></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No se encontraron usuarios.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    .container {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #d80b0b;
+    }
+   
+    .table {
+        margin-top: 1rem;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+    }
+    .bg-primary {
+        background-color: #ff0000 !important;
+    }
+    .bg-primary.text-white {
+        color: #ffffff !important;
+    }
+    .table-bordered th, .table-bordered td {
+        border: 1px solid #dee2e6 !important;
+    }
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 123, 255, 0.1);
+    }
+    .btn-outline-secondary {
+        color: #fa1302;
+        border-color: #ff0000;
+        transition: color 0.3s, border-color 0.3s;
+    }
+    .btn-outline-secondary:hover {
+        color: #ffffff;
+        background-color: #00796b;
+        border-color: #005f56;
+    }
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+</style>

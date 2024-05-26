@@ -1,0 +1,79 @@
+@{
+    ViewData["Title"] = "Crear Nuevo Usuario";
+}
+
+<div class="container-sm my-3">
+    <div class="row justify-content-center">
+        <div class="col-md-3">
+            <h2 class="mb-3 text-center">@ViewData["Title"]</h2>
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div id="successMessage" class="alert alert-success" role="alert">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <form asp-action="Create" method="post">
+                <div class="mb-2">
+                    <label for="name" class="form-label">Nombre(Name):</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-2">
+                    <label for="job" class="form-label">Trabajo(Job):</label>
+                    <input type="text" class="form-control" id="job" name="job" required>
+                </div>
+                <button type="submit" class="btn btn-success btn-block">Crear</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        setTimeout(function() {
+            document.getElementById('successMessage').style.display = 'none';
+        }, 3000);
+    </script>
+}
+
+
+<style>
+    body {
+        background-color: #ffffff;
+    }
+  
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #f80707;
+        margin-bottom: 0.5rem;
+    }
+    .alert {
+        margin-bottom: 0.5rem;
+    }
+    .form-label {
+        font-weight: 500;
+        color: #af1f1f;
+    }
+    .form-control {
+        border-color: #be0000;
+        border-radius: 4px;
+        font-size: 1 rem;
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    }
+    .btn-success {
+        background-color: #002df7;
+        border-color: #002df7
+        align="center";
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+    .btn-success:hover {
+        background-color: #ff0000;
+        border-color: #ff0000;
+    }
+</style>
+
