@@ -7,10 +7,42 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SilliconValley.styles.css" asp-append-version="true" />
+    <style>
+        header {
+            background-color: #ff0000; /* Color de fondo */
+            
+
+        .navbar-brand {
+            color: #ffffff; /* Color del texto del enlace */
+            font-weight: bold; /* Grosor de la fuente */
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff; /* Color del texto del enlace */
+            font-weight: bold; /* Grosor de la fuente */
+            transition: color 0.3s; /* Transición del color al pasar el ratón */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa; /* Color del texto del enlace al pasar el ratón */
+        }
+
+        .navbar-nav .nav-link.listar-usuarios,
+        .navbar-nav .nav-link.crear-usuario {
+            font-weight: bold; /* Grosor de la fuente */
+            color: #011274; /* Color de los enlaces */
+            transition: color 0.3s; /* Transición del color al pasar el ratón */
+        }
+
+        .navbar-nav .nav-link.listar-usuarios:hover,
+        .navbar-nav .nav-link.crear-usuario:hover {
+            color: #020200; /* Color de los enlaces al pasar el ratón */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-transparent border-bottom mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">SilliconValley</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -19,13 +51,11 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Listar Usuarios</a>
+                            <a class="nav-link listar-usuarios" asp-area="" asp-controller="Usuario" asp-action="Index">Listar Usuarios</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Create">Crear Usuario</a>
+                        <li class="nav-item">
+                            <a class="nav-link crear-usuario" asp-area="" asp-controller="Usuario" asp-action="Create">Crear Usuario</a>
                         </li>
                     </ul>
                     <partial name="_LoginPartial" />
@@ -41,7 +71,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2024 - SilliconValley - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2024 - SilliconValley - Practica 3 - Programación I -  <a asp-area="" asp-controller="Home" asp-action="Privacy">Todos los derechos reservados</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
